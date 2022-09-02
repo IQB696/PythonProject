@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import Task
-from .forms import TaskForm
+from .models import Sms
+from .forms import SmsForm
 
 
 def index(request):
-    tasks = Task.objects.order_by('id')[:5]
-    return render(request, 'msgr/index.html', {'title': 'Главная страница', 'tasks': tasks})
+    smska = Sms.objects.order_by('id')[:5]
+    return render(request, 'msgr/index.html', {'title': 'Main page', 'tasks': smska})
 
 
 def about(request):
@@ -15,14 +15,15 @@ def about(request):
 def create(request):
     error = ''
     if request.method == 'POST':
-        form = TaskForm(request.POST)
+        form = SmsForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('home')
+            error ='Error send'
         else:
-            error ='Сообщение не отправилось'
+            error ='Error send'
 
-    form = TaskForm()
+    form = SmsForm()
     context = {
         'form': form
     }

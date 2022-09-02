@@ -1,16 +1,16 @@
 {% extends 'msgr/base.html' %}
 
 {% block title %}
-Введите сообщение
+Enter a message
 {% endblock %}
 
 {% block content %}
-    <h1>Введите сообщение</h1>
+    <h1>Enter a massage</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.title }}</br>
-        {{ form.task }}</br>
-        <button type="submit" class="btn btn-success">Добавить</button>
+        {{ form.sms }}</br>
+        <button type="submit" class="btn btn-success">Send</button>
         <span>{{ error }}</span>
     </form>
 {% endblock %}

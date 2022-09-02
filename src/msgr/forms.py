@@ -1,18 +1,18 @@
-from .models import Task
+from .models import Sms
 from django.forms import ModelForm, TextInput, Textarea
 
 
-class TaskForm(ModelForm):
+class SmsForm(ModelForm):
     class Meta:
-        model = Task
-        fields = ["title", "task"]
+        model = Sms
+        fields = ["title", "sms"]
         widgets = {
             "title": TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Введите имя'
+                'placeholder': 'Enter your name'
             }),
-            "task": Textarea(attrs={
+            "sms": Textarea(attrs={
                 'class': 'form-control',
-                'placeholder': 'Введите сообщение'
+                'placeholder': 'Enter your text'
             }),
         }
